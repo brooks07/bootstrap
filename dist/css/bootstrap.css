@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
- * Bootstrap v5.0.0-alpha3 (https://getbootstrap.com/)
+ * Bootstrap v5.0.0-beta1 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
@@ -5045,27 +5045,32 @@ textarea.form-control-lg {
 }
 
 .toast {
-  max-width: 350px;
+  width: 350px;
+  max-width: 100%;
   font-size: 0.875rem;
+  pointer-events: auto;
   background-color: rgba(255, 255, 255, 0.85);
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  opacity: 0;
   border-radius: 0.25rem;
 }
-.toast:not(:last-child) {
-  margin-bottom: 0.75rem;
-}
-.toast.showing {
-  opacity: 1;
-}
-.toast.show {
-  display: block;
-  opacity: 1;
+.toast:not(.showing):not(.show) {
+  opacity: 0;
 }
 .toast.hide {
   display: none;
+}
+
+.toast-container {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 100%;
+  pointer-events: none;
+}
+.toast-container > :not(:last-child) {
+  margin-bottom: 0.75rem;
 }
 
 .toast-header {
@@ -6268,7 +6273,15 @@ textarea.form-control-lg {
 }
 
 .translate-middle {
-  transform: translateX(-50%) translateY(-50%) !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+.translate-middle-x {
+  transform: translateX(-50%) !important;
+}
+
+.translate-middle-y {
+  transform: translateY(-50%) !important;
 }
 
 .border {
